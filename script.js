@@ -1,34 +1,30 @@
-
-
 const calcArea = document.querySelector("textarea");
 
-const addNums = text => {
+const addNums = (text) => {
   //apart from .value , this is another way to extract value.
-    let { value } = calcArea;
-  
-    //Rules to add dot
-    /*
+  let { value } = calcArea;
+
+  //Rules to add dot
+  /*
     see,calcArea = value in the text area, if there is already a number present and then dot is pressed
     then we will use that dot as decimal and proceed. oherwise, there is no point of putting a dot in the text area.
 
     value.length = length of text present in text area.
 
     */
-    const ruleA = value.length === 0 && text === ".";
-      
-    //Add  only if both rules apply
-    if (!ruleA) {
-      calcArea.value += text;
-    }
-};
+  const ruleA = value.length === 0 && text === ".";
 
+  //Add  only if both rules apply
+  if (!ruleA) {
+    calcArea.value += text;
+  }
+};
 
 //operators
 const oprList = ["+", "-", "*", "/", "%", "."];
 
 //Add operators
-const addOpr = text => {
-
+const addOpr = (text) => {
   const { value } = calcArea;
   const lastCharacter = value[value.length - 1];
 
@@ -45,96 +41,131 @@ const addOpr = text => {
   }
 };
 
-
 //Delete inputs on backspace
 const del = () => {
-    const { value } = calcArea;
-    if (value.length > 0) {
-      calcArea.value = value.substr(0, value.length - 1);
-    }
-  };
+  const { value } = calcArea;
+  if (value.length > 0) {
+    calcArea.value = value.substr(0, value.length - 1);
+  }
+};
 
-  //Clear whole area
+//Clear whole area
 const clear = () => {
-    calcArea.value = "";
-  };
+  calcArea.value = "";
+};
 
-
-  //Perform calculation
+//Perform calculation
 const calc = () => {
-    const { value } = calcArea;
-    const result = eval(value);
-    
-  
-    if (!isNaN(result)  && result !== Infinity) {
-      calcArea.value = result;
-    } else {
-      alert("Invalid expression, Please check your input");
-    }
-  };
+  const { value } = calcArea;
+  const result = eval(value);
 
-
+  if (!isNaN(result) && result !== Infinity) {
+    calcArea.value = result;
+  } else {
+    alert("Invalid expression, Please check your input");
+  }
+};
 
 //Add event listeners to the button
-document.querySelectorAll(".button-group > span").forEach(e => {
-    e.addEventListener("click", f => {
-      const { classList, innerText } = f.target;
-  
-      if (classList.contains("num")) {
-        //Number buttons clicked including .
-        addNums(innerText);
-      } else if (classList.contains("opr")) {
-        //Opertor buttons clicked
-        addOpr(innerText);
-      } else if (classList.contains("calc")) {
-        //Equal button clicked
-        calc();
-      } else if (classList.contains("delete")) {
-        //Backspace button clicked
-        del();
-      } else if (classList.contains("clear")) {
-        //Clear button clicked
-        clear();
-      }
-    });
-  });
+document.querySelectorAll(".button-group > span").forEach((e) => {
+  e.addEventListener("click", (f) => {
+    const { classList, innerText } = f.target;
 
-
-
-  //Add key events
-  //The keydown event is an event that is triggered when a key on the keyboard is pressed.
-  //'e' is event object: looks like: KeyboardEvent {isTrusted: true, key: '7', code: 'Digit7', location: 0, ctrlKey: false, …}
-document.addEventListener("keydown", e => {
-    // console.log(e)
-    switch (e.key) {
-      case "1":
-      case "2":
-      case "3":
-      case "4":
-      case "5":
-      case "6":
-      case "7":
-      case "8":
-      case "9":
-      case "0":
-      case ".":
-        addNums(e.key);
-        break;
-      case "/":
-      case "*":
-      case "+":
-      case "-":
-      case "%":
-        addOpr(e.key);
-        break;
-      case "Enter":
-        calc();
-        break;
-      case "Backspace":
-        del();
-        break;
-      case "c":
-        clear();
-      default:
+    if (classList.contains("num")) {
+      //Number buttons clicked including .
+      addNums(innerText);
+    } else if (classList.contains("opr")) {
+      //Opertor buttons clicked
+      addOpr(innerText);
+    } else if (classList.contains("calc")) {
+      //Equal button clicked
+      calc();
+    } else if (classList.contains("delete")) {
+      //Backspace button clicked
+      del();
+    } else if (classList.contains("clear")) {
+      //Clear button clicked
+      clear();
     }
+  });
 });
+
+//Add key events
+//The keydown event is an event that is triggered when a key on the keyboard is pressed.
+//'e' is event object: looks like: KeyboardEvent {isTrusted: true, key: '7', code: 'Digit7', location: 0, ctrlKey: false, …}
+document.addEventListener("keydown", (e) => {
+  // console.log(e)
+  switch (e.key) {
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+    case "0":
+    case ".":
+      addNums(e.key);
+      break;
+    case "/":
+    case "*":
+    case "+":
+    case "-":
+    case "%":
+      addOpr(e.key);
+      break;
+    case "Enter":
+      calc();
+      break;
+    case "Backspace":
+      del();
+      break;
+    case "c":
+      clear();
+    default:
+  }
+});
+
+const moonButton = document.getElementById("dark");
+const sunButton = document.getElementById("light-svg");
+const calculator = document.getElementById("calculator");
+const darkMode = document.getElementById("dark-mode");
+const buttonArea = document.getElementById("buttons-area");
+const num = document.getElementsByClassName("num");
+const buttonGroupSpan = document.getElementsByClassName("shadow");
+const textArea = document.querySelector("#calc-area > textarea");
+
+const enableDarkMode = () => {
+  sunButton.setAttribute("fill", "#fff");
+  document.body.style.backgroundColor = "#060709";
+  calculator.style.backgroundColor = "#1e1e1e";
+  calculator.style.borderColor = "#1e1e1e";
+  textArea.style.backgroundColor = "#242424";
+  textArea.style.color = "#ffffff";
+  buttonArea.style.backgroundColor = "#2e2e2e";
+  buttonArea.style.borderColor = "#2e2e2e";
+  darkMode.style.borderColor = "#242424";
+  darkMode.style.backgroundColor = "#242424";
+  for (let i = 0; i < num.length; i++) {
+    num[i].style.color = "#ffffff";
+  }
+};
+const disableDarkMode = () => {
+  sunButton.setAttribute("fill", "#dfdfdf");
+  document.body.style.backgroundColor = "#e5eaee";
+  calculator.style.backgroundColor = "#ffffff";
+  calculator.style.borderColor = "#ffffff";
+  textArea.style.backgroundColor = "#f5fbfc";
+  textArea.style.color = "#585858";
+  buttonArea.style.backgroundColor = "#ffffff";
+  buttonArea.style.borderColor = "#ffffff";
+  darkMode.style.backgroundColor = "#f8f8ff";
+  darkMode.style.borderColor = "#f8f8ff";
+  for (let i = 0; i < num.length; i++) {
+    num[i].style.color = "#585858";
+  }
+};
+sunButton.addEventListener("click", disableDarkMode);
+moonButton.addEventListener("click", enableDarkMode);
