@@ -15,9 +15,9 @@ const addNums = text => {
 
     */
     const ruleA = value.length === 0 && text === ".";
-      
+    const ruleB = value[value.length-2] === "." ?? Number.isInteger(+text);
     //Add  only if both rules apply
-    if (!ruleA) {
+    if (!ruleA && !ruleB) {
       calcArea.value += text;
     }
 };
@@ -67,7 +67,7 @@ const calc = () => {
     
   
     if (!isNaN(result)  && result !== Infinity) {
-      calcArea.value = result;
+      calcArea.value = result.toFixed(1);
     } else {
       alert("Invalid expression, Please check your input");
     }
