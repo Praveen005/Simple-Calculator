@@ -24,11 +24,12 @@ body.dark {
   margin: 0 auto;
   padding: 10px;
   background: #f2f3f7;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 .dark #calculator{
   background: #141418;
+  box-shadow: 0px 4px 6px rgba(174, 174, 174, 0.1);
 }
 #calc-area {
   display: flex;
@@ -99,7 +100,9 @@ body.dark {
 .dark .button-group>span{
   background: #161722;
   color: #dee8f5;
+  box-shadow: 0px 4px 6px rgba(186, 186, 186, 0.1);
 }
+
 
 .button-group>span:active {
   box-shadow: none;
