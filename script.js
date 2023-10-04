@@ -132,18 +132,21 @@ const moonButton = document.getElementById("dark");
 const sunButton = document.getElementById("light-svg");
 const calculator = document.getElementById("calculator");
 const darkMode = document.getElementById("dark-mode");
+const title = document.getElementById("title");
 const buttonArea = document.getElementById("buttons-area");
 const num = document.getElementsByClassName("num");
-const buttonGroupSpan = document.getElementsByClassName("shadow");
 const textArea = document.querySelector("#calc-area > textarea");
+const buttonGroup = document.querySelector(".button-group");
+const spans = document.querySelectorAll(".button-group span");
 
 const enableDarkMode = () => {
   sunButton.setAttribute("fill", "#fff");
   document.body.style.backgroundColor = "#060709";
   calculator.style.backgroundColor = "#1e1e1e";
   calculator.style.borderColor = "#1e1e1e";
-  textArea.style.backgroundColor = "#242424";
+  textArea.style.backgroundColor = "#2e2e2e";
   textArea.style.color = "#ffffff";
+  title.style.color = "#ffffff";
   buttonArea.style.backgroundColor = "#2e2e2e";
   buttonArea.style.borderColor = "#2e2e2e";
   darkMode.style.borderColor = "#242424";
@@ -151,14 +154,18 @@ const enableDarkMode = () => {
   for (let i = 0; i < num.length; i++) {
     num[i].style.color = "#ffffff";
   }
+  spans.forEach((span) => {
+    span.style.boxShadow = "0px 2px 3px rgba(255, 255, 255, 0.2)";
+  });
 };
 const disableDarkMode = () => {
   sunButton.setAttribute("fill", "#dfdfdf");
   document.body.style.backgroundColor = "#e5eaee";
   calculator.style.backgroundColor = "#ffffff";
   calculator.style.borderColor = "#ffffff";
-  textArea.style.backgroundColor = "#f5fbfc";
+  textArea.style.backgroundColor = "#ebebeb";
   textArea.style.color = "#585858";
+  title.style.color = "#585858";
   buttonArea.style.backgroundColor = "#ffffff";
   buttonArea.style.borderColor = "#ffffff";
   darkMode.style.backgroundColor = "#f8f8ff";
@@ -166,6 +173,9 @@ const disableDarkMode = () => {
   for (let i = 0; i < num.length; i++) {
     num[i].style.color = "#585858";
   }
+  spans.forEach((span) => {
+    span.style.boxShadow = "0px 2px 3px rgba(0, 0, 0, 0.2)";
+  });
 };
 sunButton.addEventListener("click", disableDarkMode);
 moonButton.addEventListener("click", enableDarkMode);

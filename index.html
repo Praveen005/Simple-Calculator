@@ -21,8 +21,8 @@
     />
   </head>
   <body>
-    <div id="calculator">
-      <section id="calc-area">
+    <div class="container">
+      <div class="dark-mode-container">
         <div id="dark-mode">
           <svg
             width="25px"
@@ -73,40 +73,45 @@
             />
           </svg>
         </div>
-        <textarea placeholder="" id="view" disabled></textarea>
-      </section>
-      <!-- Button Area -->
-      <section id="buttons-area">
-        <div class="button-group">
-          <span class="non-num opr shadow">%</span>
-          <span class="non-num clear shadow">C</span>
-          <span class="non-num delete shadow"><</span>
-          <span class="non-num opr shadow">/</span>
-        </div>
-        <div class="button-group">
-          <span class="num shadow">7</span>
-          <span class="num shadow">8</span>
-          <span class="num shadow">9</span>
-          <span class="non-num opr shadow">*</span>
-        </div>
-        <div class="button-group">
-          <span class="num shadow">4</span>
-          <span class="num shadow">5</span>
-          <span class="num shadow">6</span>
-          <span class="non-num opr">-</span>
-        </div>
-        <div class="button-group">
-          <span class="num shadow">1</span>
-          <span class="num shadow">2</span>
-          <span class="num shadow">3</span>
-          <span class="non-num opr shadow">+</span>
-        </div>
-        <div class="button-group">
-          <span class="num shadow">0</span>
-          <span class="non-num num shadow">.</span>
-          <span class="non-num calc shadow">=</span>
-        </div>
-      </section>
+      </div>
+      <div id="calculator">
+        <section id="calc-area">
+          <p id="title">Calculator</p>
+          <textarea placeholder="" id="view" disabled></textarea>
+        </section>
+        <!-- Button Area -->
+        <section id="buttons-area">
+          <div class="button-group">
+            <span class="non-num opr shadow">%</span>
+            <span class="non-num clear shadow">C</span>
+            <span class="non-num delete shadow"><</span>
+            <span class="non-num opr shadow">/</span>
+          </div>
+          <div class="button-group">
+            <span class="num shadow">7</span>
+            <span class="num shadow">8</span>
+            <span class="num shadow">9</span>
+            <span class="non-num opr shadow">*</span>
+          </div>
+          <div class="button-group">
+            <span class="num shadow">4</span>
+            <span class="num shadow">5</span>
+            <span class="num shadow">6</span>
+            <span class="non-num opr">-</span>
+          </div>
+          <div class="button-group">
+            <span class="num shadow">1</span>
+            <span class="num shadow">2</span>
+            <span class="num shadow">3</span>
+            <span class="non-num opr shadow">+</span>
+          </div>
+          <div class="button-group">
+            <span class="num shadow">0</span>
+            <span class="non-num num shadow">.</span>
+            <span class="non-num calc shadow">=</span>
+          </div>
+        </section>
+      </div>
     </div>
 
     <script src="script.js"></script>
