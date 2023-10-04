@@ -1,112 +1,221 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Major+Mono+Display&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Major+Mono+Display&display=swap");
+
+:root {
+  --primary-color: #dfdede;
+  --secondary-color: #f8f8ff;
 }
 
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e5eaee;
-    font-family: 'Major Mono Display', monospace;
+html {
+  color-scheme: light dark;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  background-color: #e5eaee;
+  font-family: "Major Mono Display", monospace;
+}
+.container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 #calculator {
-    width: 300px;
-    margin: 0 auto;
-    padding: 10px;
-    background: #f2f3f7;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  
-  #calc-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background: #f9f9f9;
-  }
+  width: 330px;
+  padding-top: 1em;
+  background-color: white;
+  margin: 0 auto;
+  height: 550px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
 
- #calc-area > span{
-  font-family: 'Baloo 2', cursive;
-  text-transform: uppercase;
- }
-  
-  #calc-area > span,
-  #calc-area > textarea {
-    display: inline-flex;
-    flex: 100%;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  #calc-area > textarea {
-    outline: none ;
-    min-height: 60px;
-    resize: none;
-    font-size: 1.8em;
-    letter-spacing: 2.5px;
-
-  }
-  
-  #calc-area > span {
-    font-size: 2em;
-  }
-  
-  #buttons-area {
-    padding: 10px 0 0;
-  }
-  
-  .button-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .button-group > span {
-    display: inline-flex;
-    flex: 1 1;
-    padding: 15px 10px;
-    justify-content: center;
-    align-items: center;
-    margin: 4px;
-    border-radius: 25px;
-    color: #fff;
-    font-size: 2em;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    user-select: none;
-    transition: all 0.2s ease;
-    opacity: 0.8;
+#calc-area {
+  height: 175px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 0.5em;
+}
+.dark-mode-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em 1em;
+}
+#dark-mode {
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  width: max-content;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  .dark {
+    height: 25px;
+    width: 23px;
     cursor: pointer;
   }
-  .button-group > span:active{
-    box-shadow: none;
+  .light {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
   }
+}
 
- 
-  
-  .button-group > span.calc {
-    flex: 2.5;
-    border-radius: 7px;
-    background: #f44336;
-  }
-  
-  .button-group > span:hover {
-    opacity: 1;
-  }
+#calc-area > textarea {
+  outline: none;
+  width: 100%;
+  min-height: 60px;
+  border: none;
+  color: #585858;
+  margin-bottom: 0.5em;
+  resize: none;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  padding: 0.25em 0.5em;
+  background-color: #ebebeb;
+  text-align: right;
+}
+#title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  color: #585858;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  user-select: none;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  bottom: -2px;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+.title:hover::before {
+  width: 100%;
+}
 
-  .button-group .non-num{
-    background: #dee8f5;
-    color: #000;
-    opacity: 1;
-  }
+#buttons-area {
+  flex: 1;
+  background-color: #f8f8ff;
+  padding: 1em;
+  border-top: 1px solid #f8f8ff;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
 
-  .button-group .num{
-    background: #fff;
-    color: #000;
-    opacity: 1;
-  }
+.button-group {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+}
 
+.button-group span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 10px;
+  margin: 4px;
+  width: 80%;
+  border-radius: 0.75rem;
+  font-size: 1.75em;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+}
+.calc {
+  grid-column: span 2;
+  width: 90%;
+}
+.clear {
+  font-family: sans-serif;
+}
+.num,
+.opr {
+  font-weight: 600;
+}
+.num {
+  color: #585858;
+}
+.non-num {
+  color: #f44336;
+}
+.calc {
+  background-color: #f44336;
+  color: #fff;
+  font-weight: 600;
+}
+.delete {
+  font-weight: 600;
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #060709;
+  }
+  #calculator {
+    background-color: #1e1e1e;
+    border: 1px solid #1e1e1e;
+  }
+  #calc-area > textarea {
+    background-color: #2e2e2e;
+    color: #ffffff;
+  }
+  #buttons-area {
+    background-color: #2e2e2e;
+    border: 1px solid #2e2e2e;
+  }
+  .num {
+    color: #ffffff;
+  }
+  .button-group span {
+    box-shadow: 0px 2px 3px rgba(255, 255, 255, 0.2);
+  }
+  #dark-mode {
+    background-color: #242424;
+    border: 1px solid #242424;
+  }
+  #title {
+    color: #fff;
+  }
+}
