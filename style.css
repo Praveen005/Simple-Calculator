@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -14,9 +15,9 @@ body{
     font-family: 'Major Mono Display', monospace;
 }
 #calculator {
-    width: 300px;
+    width: 460px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 1rem;
     background: #f2f3f7;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -32,6 +33,7 @@ body{
 
  #calc-area > span{
   font-family: 'Baloo 2', cursive;
+  margin-top: 10px;
   text-transform: uppercase;
  }
   
