@@ -41,6 +41,7 @@ body{
     flex: 100%;
     justify-content: center;
     margin-bottom: 20px;
+      background-colour: blue;
   }
   
   #calc-area > textarea {
